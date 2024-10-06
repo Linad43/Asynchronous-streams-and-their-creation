@@ -1,14 +1,8 @@
 package org.example
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.withContext
 import kotlin.system.measureTimeMillis
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 
 const val SIZE_NUM = 12
 val persons = arrayListOf<Person>()
@@ -34,10 +28,10 @@ suspend fun main() {
                 }
             }
             val phoneFlow = launch {
-                getPhoneFlow(persons.size).collect{
+                getPhoneFlow(persons.size).collect {
                     phoneNums.add(it)
                 }
-            //phoneNums.add(getPhoneFlow(persons.size).toString())
+                //phoneNums.add(getPhoneFlow(persons.size).toString())
 
             }
             personFlow.join()
