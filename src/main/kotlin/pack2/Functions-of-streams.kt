@@ -1,4 +1,4 @@
-package org.example
+package org.example.pack2
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect

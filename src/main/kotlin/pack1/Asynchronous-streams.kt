@@ -1,4 +1,4 @@
-package org.example
+package org.example.pack1
 
 import kotlin.system.measureTimeMillis
 import kotlinx.coroutines.*
