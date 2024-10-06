@@ -52,7 +52,7 @@ suspend fun main() {
             println("${it.key} = ${it.value}")
         }
     }
-    println("На создание $countPerson потребовалось $time мс")
+    println("На создание $countPerson паролей потребовалось $time мс")
 }
 
 fun createPassword(): String {
