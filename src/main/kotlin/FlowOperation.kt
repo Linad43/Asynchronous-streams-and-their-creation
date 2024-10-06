@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 
-fun listIntNum(length: Int, min: Int, max: Int): ArrayList<Int> {
+private fun listIntNum(length: Int, min: Int, max: Int): ArrayList<Int> {
     val result = arrayListOf<Int>()
     for (i in 1..length) {
         result.add((min..max).random())
@@ -12,13 +12,18 @@ fun listIntNum(length: Int, min: Int, max: Int): ArrayList<Int> {
     return result
 }
 
-fun listIntNum(length: Int): ArrayList<Int> {
+private fun listIntNum(length: Int): ArrayList<Int> {
     return listIntNum(length, 0, 10)
 }
 
-fun listIntNum(): ArrayList<Int> {
+private fun listIntNum(): ArrayList<Int> {
     return listIntNum(10)
 }
+
+private class Person(
+    val name,
+    val age
+)
 
 suspend fun main() {
 
@@ -37,4 +42,9 @@ private suspend fun ex1(): String {
         }
     }.map { it * it }
         .reduce { sum, element -> sum + element }.toString()
+}
+private fun getPerson(first:String, age:Int) = flow<Person> {
+    val persons = arrayListOf({
+        Person("")
+    })
 }

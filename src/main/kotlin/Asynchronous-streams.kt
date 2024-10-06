@@ -5,8 +5,8 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 const val SIZE_NUM = 12
-val persons = arrayListOf<Person>()
-var phoneNums = arrayListOf<String>()
+private val persons = arrayListOf<Person>()
+private var phoneNums = arrayListOf<String>()
 
 suspend fun main() {
     val names = arrayOf("Иван", "Петр", "Дмитрий", "София")
@@ -57,5 +57,12 @@ fun getPhoneFlow(size: Int) = flow {
         emit(num)
     }
 }
-
-fun getPersonFlow() = persons.asFlow().onEach { delay(100L) }
+private class Person(
+    val name: String,
+    val role: String
+) {
+    override fun toString(): String {
+        return "Пользователь: $name, $role"
+    }
+}
+private fun getPersonFlow() = persons.asFlow().onEach { delay(100L) }
