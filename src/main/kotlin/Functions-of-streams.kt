@@ -1,6 +1,8 @@
 package org.example
+//
+//val SELECT_CHAR = arrayListOf(('a'..'z').toMutableList().toString())
+val SELECT = ('0'..'9').toList() + ('a'..'z').toList()
 
-val SELECT = arrayListOf(("0".."9"), ("a".."z"))
 
 fun main() {
     repeat(15) {
@@ -27,9 +29,10 @@ fun createPassword(): String {
 
 fun isNum(char: String): Boolean {
     try {
-        char.toString()
-        return false
-    } catch (e: Exception) {
+        char.toInt()
         return true
+    } catch (e: Exception) {
+        return false
     }
 }
+
